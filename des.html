@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chasing Maple - Destination Search & Weather</title>
+    <link rel="stylesheet" href="styles/des.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="">Travel Explorer</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="des.html">Destinations</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="itinerary.html">Itinerary Builder</a></li>
+                    <li><a href="travelDeals.html">Travel Deals</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="destination-search">
+        <h2>Search Destinations</h2>
+        <form action="">
+            <label for="destination">Enter Destination:</label>
+            <input type="text" id="destination" name="destination" placeholder="Enter city or country" required>
+            <button type="button" onclick="fetchWeather()">Search</button>
+        </form>
+    </section>
+
+    <section id="weather-info">
+        <h2>Real-Time Weather Information</h2>
+        <div id="weather-results">
+            <!-- Weather data will be displayed here dynamically -->
+        </div>
+    </section>
+    <footer>
+        <p>© 2024 Chasing Maple. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

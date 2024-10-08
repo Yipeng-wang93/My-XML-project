@@ -1,0 +1,151 @@
+/* Itinerary Builder & Travel Guides Page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin: 0 10px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    color: #ddd;
+}
+
+/* Itinerary Builder Section */
+#itinerary-builder {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+#itinerary-builder h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.itinerary-form {
+    margin-bottom: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.itinerary-form form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.itinerary-form form input,
+.itinerary-form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.itinerary-form form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.itinerary-form form button:hover {
+    background-color: #0056b3;
+}
+
+/* Travel Guides Section */
+#travel-guides {
+    padding: 40px 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+#travel-guides h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#guides-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.guide-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.guide-item h3 {
+    margin: 0;
+    font-size: 1.3em;
+    color: #007BFF;
+}
+
+.guide-item p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+@media (max-width: 768px) {
+    .navbar nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .itinerary-form {
+        width: 90%;
+    }
+
+    #guides-list {
+        width: 90%;
+    }
+}

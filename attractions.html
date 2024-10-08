@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chasing Maple - Attractions, Hotels, & Restaurants</title>
+    <link rel="stylesheet" href="styles/attractions.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="">Travel Explorer</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="des.html">Destinations & Weather</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                    <li><a href="itinerary.html">Itinerary Builder</a></li>
+                    <li><a href="travelDeals.html">Travel Deals</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="attractions">
+        <h2>Attractions, Hotels, & Restaurants</h2>
+        <div class="search-section">
+            <form action="">
+                <label for="location">Enter Location:</label>
+                <input type="text" id="location" name="location" placeholder="Enter city or area" required>
+                <button type="button" onclick="fetchAttractions()">Search</button>
+            </form>
+        </div>
+        <div id="attractions-results">
+            <!-- Attraction, hotel, and restaurant data will be displayed here dynamically -->
+        </div>
+    </section>
+
+    <section id="interactive-map">
+        <h2>Interactive Map</h2>
+        <div id="map-container">
+            <!-- The interactive map will be embedded here -->
+        </div>
+    </section>
+    <footer>
+        <p>© 2024 Chasing Maple. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
