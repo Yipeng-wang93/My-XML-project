@@ -80,6 +80,11 @@ header {
     background-color: #0056b3;
 }
 
+/* Picture Section*/
+#picture {
+    display: inline-flex;
+}
+
 /* Contact Section */
 #contact {
     padding: 40px 20px;

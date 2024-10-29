@@ -1,4 +1,4 @@
-/*Attraction Page*/
+/* Attraction Page */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -135,7 +135,6 @@ header {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 
 @media (max-width: 768px) {
     .navbar nav ul {

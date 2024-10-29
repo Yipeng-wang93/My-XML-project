@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chasing Maple - Destination Search & Weather</title>
+    <style>
+            table {
+              border: 2px solid black;
+              border-collapse: collapse;
+            }
+            td,
+            th {
+              border: 2px solid black;
+              padding: 15 px;
+            }
+            thead {
+              background-color: skyblue;
+            }
+    </style>
     <link rel="stylesheet" href="styles/des.css">
 </head>
 <body>
@@ -26,23 +40,93 @@
     </header>
 
     <section id="destination-search">
+        <div>
+            <img src="Prince Edward Island/Basin Head Provincial Park.png" style="width: 210px;height: 200px;">
+        </div>
+        <div>
         <h2>Search Destinations</h2>
         <form action="">
             <label for="destination">Enter Destination:</label>
             <input type="text" id="destination" name="destination" placeholder="Enter city or country" required>
-            <button type="button" onclick="fetchWeather()">Search</button>
+            <button id="loadButton" type="button" onclick="loadWeather()">Search</button>
         </form>
+        </div>
+
+        <div>
+            <img src="Saskatchewan/Cypress Hills & Grasslands National Park.png" style="width: 210px;height: 200px;">
+        </div>
     </section>
 
     <section id="weather-info">
         <h2>Real-Time Weather Information</h2>
         <div id="weather-results">
-            <!-- Weather data will be displayed here dynamically -->
+            
+            <h1>Detailed Weather</h1>
+            <table id="result">
+                <thead>
+                    <tr>
+                    
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Day</th>
+                    <th>Hour</th>
+                    <th>Minute</th>
+                    <th>Period</th>
+                    <th>Forecast Summary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+        </table>
         </div>
     </section>
     <footer>
         <p>© 2024 Chasing Maple. All rights reserved.</p>
     </footer>
+    <script>
+        function loadWeather() {
+            fetch('https://dd.weather.gc.ca/citypage_weather/xml/ON/s0000022_e.xml')
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok!');
+                    }
+                    return response.text();
+                })
+                .then((str) => {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(str, 'text/xml');
 
+                    const forecastGroup = xmlDoc.getElementsByTagName('forecastGroup')[0];
+                    const forecasts = forecastGroup.getElementsByTagName('forecast');
+
+                    document.querySelector('#result tbody').innerHTML = '';
+
+                    for (let i = 0; i < forecasts.length; i++) {
+                        const period = forecasts[i].getElementsByTagName('period')[0]?.textContent || 'N/A';
+                        const textSummary = forecasts[i].getElementsByTagName('textSummary')[0]?.textContent || 'N/A';
+
+                        const dateTime = xmlDoc.getElementsByTagName('dateTime')[i];
+                        const year = dateTime.getElementsByTagName('year')[0]?.textContent || 'N/A';
+                        const month = dateTime.getElementsByTagName('month')[0]?.textContent || 'N/A';
+                        const day = dateTime.getElementsByTagName('day')[0]?.textContent || 'N/A';
+                        const hour = dateTime.getElementsByTagName('hour')[0]?.textContent || 'N/A';
+                        const minute = dateTime.getElementsByTagName('minute')[0]?.textContent || 'N/A';
+
+                        document.querySelector('#result tbody').innerHTML += `
+                            <tr>
+                                <td>${year}</td> <td>${month}</td> <td>${day}</td> 
+                                <td>${hour}</td> <td>${minute}</td> <td>${period}</td> <td>${textSummary}</td>
+                            </tr>`;
+                    }
+                })
+                .catch((error) => {
+                    console.error('Fetch error:', error);
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('#loadButton').addEventListener('click', loadWeather);
+        });
+    </script>
 </body>
 </html>

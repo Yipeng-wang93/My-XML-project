@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chasing Maple - Attractions, Hotels, & Restaurants</title>
     <link rel="stylesheet" href="styles/attractions.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd51RebPS8Rjf_fcHO3FyDSSEa6AF9vMY&callback=initMap" async defer></script>
 </head>
 <body>
     <header>
@@ -41,13 +42,43 @@
 
     <section id="interactive-map">
         <h2>Interactive Map</h2>
-        <div id="map-container">
-            <!-- The interactive map will be embedded here -->
-        </div>
+        <div id="map-container"></div>
     </section>
+    
     <footer>
         <p>© 2024 Chasing Maple. All rights reserved.</p>
     </footer>
 
+    <script>
+        let map;
+        let geocoder;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map-container'), {
+                center: { lat: 37.4224428, lng: -122.0842467 },
+                zoom: 10,
+            });
+            geocoder = new google.maps.Geocoder();
+        }
+
+        function fetchAttractions() {
+            const address = document.getElementById("location").value;
+            if (address) {
+                geocoder.geocode({ address: address }, (results, status) => {
+                    if (status === "OK") {
+                        map.setCenter(results[0].geometry.location);
+                        new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location,
+                        });
+                    } else {
+                        alert("Geocode was not successful for the following reason: " + status);
+                    }
+                });
+            } else {
+                alert("Please enter a location.");
+            }
+        }
+    </script>
 </body>
 </html>
