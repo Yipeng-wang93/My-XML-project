@@ -111,22 +111,37 @@ header {
     margin-bottom: 20px;
     padding-bottom: 15px;
     border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.review-item h3 {
-    margin: 0;
-    font-size: 1.3em;
-    color: #007BFF;
+.review-item .review-text {
+    flex: 1;
+    text-align: left;
 }
 
-.review-item p {
-    margin: 5px 0;
-    font-size: 1.1em;
-}
-
-.review-item .rating {
-    font-size: 1.1em;
+.review-item .stars {
     color: #ffcc00;
+    font-size: 1.2em;
+}
+
+.review-item .emoji-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+    font-size: 1em;
+    align-items: center;
+    margin-top: 10px;  /* Added margin to separate from stars */
+}
+
+.review-item .emoji-buttons span {
+    cursor: pointer;
+}
+
+.emoji-count {
+    font-size: 1em;
+    margin-left: 5px;
 }
 
 @media (max-width: 768px) {

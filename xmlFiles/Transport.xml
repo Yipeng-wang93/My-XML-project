@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locations>
+  <location name="Toronto">
+    <transportation>Train, Cab, Bicycle, Bus</transportation>
+  </location>
+  <location name="Ottawa">
+    <transportation>Train, Cab, Bus</transportation>
+  </location>
+  <location name="Mississauga">
+    <transportation>Cab, Bicycle, Bus</transportation>
+  </location>
+</locations>
+<schedules>
+  <schedule>
+    <type>Train</type>
+    <times>
+      <time>Morning (8 AM - 12 PM)</time>
+      <time>Afternoon (12 PM - 4 PM)</time>
+      <time>Evening (4 PM - 8 PM)</time>
+      <time>Night (8 PM - 12 AM)</time>
+    </times>
+  </schedule>
+  <schedule>
+    <type>Cab</type>
+    <times>
+      <time>Anytime</time>
+    </times>
+  </schedule>
+  <schedule>
+    <type>Bicycle</type>
+    <times>
+      <time>Morning (8 AM - 12 PM)</time>
+      <time>Afternoon (12 PM - 4 PM)</time>
+      <time>Evening (4 PM - 8 PM)</time>
+      <time>Night (8 PM - 12 AM)</time>
+    </times>
+  </schedule>
+  <schedule>
+    <type>Bus</type>
+    <times>
+      <time>Morning (6 AM - 10 AM)</time>
+      <time>Afternoon (4 PM - 8 PM)</time>
+      <time>Night (10 PM - 2 AM)</time>
+    </times>
+  </schedule>
+</schedules>
